@@ -1,124 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(IoTScapeObject)), RequireComponent(typeof(Light))]
+[RequireComponent(typeof(Light))]
 public class IoTScapeLight : MonoBehaviour
 {
     private Light light;
-    private IoTScapeObject iotscapeobject;
 
     // Start is called before the first frame update
     void Start()
     {
         light = GetComponent<Light>();
-        iotscapeobject = GetComponent<IoTScapeObject>();
-
-        iotscapeobject.RegisterMethod("setEnabled", SetEnabled, new IoTScapeMethodDescription()
-            {
-                documentation = "Turn light on or off",
-                paramsList = new List<IoTScapeMethodParams>
-                {
-                    new IoTScapeMethodParams
-                    {
-                        documentation = "on/off",
-                        type = "string",
-                        name = "status",
-                        optional = false
-                    }
-                },
-                returns = new IoTScapeMethodReturns()
-                {
-                    documentation = "",
-                    type = new List<string>() { "void" }
-                }
-            });
-
-        iotscapeobject.RegisterMethod("setIntensity", SetIntensity, new IoTScapeMethodDescription()
-        {
-            documentation = "Set light brightness",
-            paramsList = new List<IoTScapeMethodParams>()
-            {
-                new IoTScapeMethodParams
-                {
-                    documentation = "Intensity value",
-                    type = "float",
-                    name = "intensity",
-                    optional = false
-                }
-            },
-            returns = new IoTScapeMethodReturns
-            {
-                documentation = "",
-                type = new List<string> { "void" }
-            }
-        });
-
-        iotscapeobject.RegisterMethod("setColor", SetColor, new IoTScapeMethodDescription()
-        {
-            documentation = "Set light color",
-            paramsList = new List<IoTScapeMethodParams>()
-            {
-                new IoTScapeMethodParams
-                {
-                    documentation = "Red value",
-                    type = "float",
-                    name = "red",
-                    optional = false
-                },
-                new IoTScapeMethodParams
-                {
-                    documentation = "Green value",
-                    type = "float",
-                    name = "green",
-                    optional = false
-                },
-                new IoTScapeMethodParams
-                {
-                    documentation = "Blue value",
-                    type = "float",
-                    name = "blue",
-                    optional = false
-                },
-            },
-            returns = new IoTScapeMethodReturns
-            {
-                documentation = "",
-                type = new List<string> { "void" }
-            }
-        });
-
-
-        iotscapeobject.RegisterMethod("getIntensity", GetIntensity, new IoTScapeMethodDescription()
-        {
-            documentation = "Get current light color",
-            paramsList = new List<IoTScapeMethodParams>()
-            {
-
-            },
-            returns = new IoTScapeMethodReturns
-            {
-                documentation = "Colors of this light",
-                type = new List<string> { "number" }
-            }
-        });
-
-        iotscapeobject.RegisterMethod("getColor", GetColor, new IoTScapeMethodDescription()
-        {
-            documentation = "Get current light color",
-            paramsList = new List<IoTScapeMethodParams>(),
-            returns = new IoTScapeMethodReturns
-            {
-                documentation = "Intensity of this light",
-                type = new List<string> { "number", "number", "number" }
-            }
-        });
-
         UpdateMaterial();
     }
 
-    public string[] SetEnabled(params string[] input)
+    public String[] SetEnabled(params String[] input)
     {
         if (input.Length == 1)
         {
@@ -137,7 +33,7 @@ public class IoTScapeLight : MonoBehaviour
         return null;
     }
 
-    public string[] SetIntensity(params string[] input)
+    public String[] SetIntensity(params String[] input)
     {
         if (input.Length == 1 && float.TryParse(input[0], out var intensity))
         {
@@ -156,7 +52,7 @@ public class IoTScapeLight : MonoBehaviour
         GetComponent<Renderer>().material.SetColor("_EmissionColor", (light.enabled? light.color : Color.black) * light.intensity / 2.5f);
     }
 
-    public string[] SetColor(params string[] input)
+    public String[] SetColor(params String[] input)
     {
         float r, g, b;
 
@@ -170,12 +66,12 @@ public class IoTScapeLight : MonoBehaviour
         return null;
     }
 
-    public string[] GetColor(params string[] input)
+    public String[] GetColor(params String[] input)
     {
         return new[] { light.color.r.ToString(), light.color.b.ToString(), light.color.g.ToString() };
     }
 
-    public string[] GetIntensity(params string[] input)
+    public String[] GetIntensity(params String[] input)
     {
         return new[] { light.intensity.ToString() };
     }

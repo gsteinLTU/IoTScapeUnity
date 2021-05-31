@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1197119196377878051}
   - component: {fileID: 1197119196377878052}
-  - component: {fileID: 1197119196377878053}
   - component: {fileID: 1197119196377878050}
   - component: {fileID: 1197119196377878055}
   m_Layer: 0
@@ -54,6 +53,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -78,14 +78,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!222 &1197119196377878053
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1197119196377878048}
-  m_CullTransparentMesh: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &1197119196377878050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,6 +94,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -250,6 +244,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -274,6 +269,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!135 &1197119197197406687
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -346,6 +342,7 @@ Light:
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!114 &1197119197197406675
@@ -360,16 +357,101 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc6484b623b1a9f4c8c540a35bd87fb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Definition:
-    id: 
-    service:
-      description: 
-      externalDocumentation: 
-      termsOfService: 
-      contact: 
-      license: 
-      version: 
+  Definition: {fileID: 11400000, guid: 70f87666641eca54c8f789f4107be77b, type: 2}
   ServiceName: UnityLight
+  Methods:
+    list:
+    - Key: setEnabled
+      Value:
+        _target: {fileID: 1197119197197406674}
+        _methodName: SetEnabled
+        _args:
+        - boolValue: 0
+          intValue: 0
+          floatValue: 0
+          stringValue: 
+          stringArrayValue: []
+          objectValue: {fileID: 0}
+          argType: 5
+          _typeName: System.String[], mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        _dynamic: 1
+        _typeName: IoTScapeUnityPlugin.IoTScapeCommandCallback, IoTScapeUnityPlugin,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        dirty: 0
+    - Key: setIntensity
+      Value:
+        _target: {fileID: 1197119197197406674}
+        _methodName: SetIntensity
+        _args:
+        - boolValue: 0
+          intValue: 0
+          floatValue: 0
+          stringValue: 
+          stringArrayValue: []
+          objectValue: {fileID: 0}
+          argType: 5
+          _typeName: System.String[], mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        _dynamic: 1
+        _typeName: IoTScapeUnityPlugin.IoTScapeCommandCallback, IoTScapeUnityPlugin,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        dirty: 0
+    - Key: setColor
+      Value:
+        _target: {fileID: 1197119197197406674}
+        _methodName: SetColor
+        _args:
+        - boolValue: 0
+          intValue: 0
+          floatValue: 0
+          stringValue: 
+          stringArrayValue: []
+          objectValue: {fileID: 0}
+          argType: 5
+          _typeName: System.String[], mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        _dynamic: 1
+        _typeName: IoTScapeUnityPlugin.IoTScapeCommandCallback, IoTScapeUnityPlugin,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        dirty: 0
+    - Key: getIntensity
+      Value:
+        _target: {fileID: 1197119197197406674}
+        _methodName: GetIntensity
+        _args:
+        - boolValue: 0
+          intValue: 0
+          floatValue: 0
+          stringValue: 
+          stringArrayValue: []
+          objectValue: {fileID: 0}
+          argType: 5
+          _typeName: System.String[], mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        _dynamic: 1
+        _typeName: IoTScapeUnityPlugin.IoTScapeCommandCallback, IoTScapeUnityPlugin,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        dirty: 0
+    - Key: getColor
+      Value:
+        _target: {fileID: 1197119197197406674}
+        _methodName: GetColor
+        _args:
+        - boolValue: 0
+          intValue: 0
+          floatValue: 0
+          stringValue: 
+          stringArrayValue: []
+          objectValue: {fileID: 0}
+          argType: 5
+          _typeName: System.String[], mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        _dynamic: 1
+        _typeName: IoTScapeUnityPlugin.IoTScapeCommandCallback, IoTScapeUnityPlugin,
+          Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        dirty: 0
+    keyCollision: 0
 --- !u!114 &1197119197197406674
 MonoBehaviour:
   m_ObjectHideFlags: 0

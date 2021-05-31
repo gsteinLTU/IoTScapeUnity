@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42fc397df2aea6d408007a39306577ae, type: 3}
+  m_Name: UnityLight
+  m_EditorClassIdentifier: 
+  service:
+    description: A Unity light
+    externalDocumentation: 
+    termsOfService: n/a
+    contact: gstein@ltu.edu
+    license: n/a
+    version: 1
+  id: 
+  methods:
+    list:
+    - Key: setEnabled
+      Value:
+        documentation: Turn light on or off
+        paramsList:
+        - name: status
+          documentation: on/off
+          type: string
+          optional: 0
+        returns:
+          documentation: 
+          type:
+          - void
+    - Key: setIntensity
+      Value:
+        documentation: Set light brightness
+        paramsList:
+        - name: intensity
+          documentation: Intensity value
+          type: float
+          optional: 0
+        returns:
+          documentation: 
+          type:
+          - void
+    - Key: setColor
+      Value:
+        documentation: Set light color
+        paramsList:
+        - name: red
+          documentation: Red value
+          type: float
+          optional: 0
+        - name: green
+          documentation: Green value
+          type: float
+          optional: 0
+        - name: blue
+          documentation: Blue value
+          type: float
+          optional: 0
+        returns:
+          documentation: 
+          type:
+          - void
+    - Key: getIntensity
+      Value:
+        documentation: Get light brightness
+        paramsList: []
+        returns:
+          documentation: Intensity of this light
+          type:
+          - number
+    - Key: getColor
+      Value:
+        documentation: Get light color
+        paramsList: []
+        returns:
+          documentation: Color of this light
+          type:
+          - number
+          - number
+          - number
+    keyCollision: 0
+  events:
+    list: []
+    keyCollision: 0
