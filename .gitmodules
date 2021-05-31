@@ -1,0 +1,3 @@
+[submodule "Assets\\IoTScapeUnityPlugin"]
+	path = Assets\\IoTScapeUnityPlugin
+	url = https://github.com/gsteinLTU/IoTScapeUnityPlugin.git
