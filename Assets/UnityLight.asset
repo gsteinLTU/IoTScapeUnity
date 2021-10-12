@@ -18,7 +18,7 @@ MonoBehaviour:
     termsOfService: n/a
     contact: gstein@ltu.edu
     license: n/a
-    version: 1
+    version: 2
   id: 
   methods:
     list:
